@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+mainClassName = 'JenkinsExample'
+
+repositories {
+    mavenCentral()
+}
+
+task apiJar(type: Jar) {
+    baseName "publishing-api"
+    from sourceSets.main.output
+    exclude '**/impl/**'
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}

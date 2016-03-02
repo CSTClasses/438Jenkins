@@ -13,9 +13,9 @@ public class JenkinsExampleTest {
 		assertSame(new JenkinsExample().isActionable("checkStatus"),true);
 	}
 	
-	@Test
+	/*@Test
 	public void verifyFalseEqualsTrue() {
 		assertSame(false,true);
-	}
+	}*/
 
 }
